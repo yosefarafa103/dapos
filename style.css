@@ -1,0 +1,155 @@
+:root {
+    --main-color: #00263A;
+    --secound-color: #027BB9;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    direction: rtl;
+    font-family: 'Tajawal', sans-serif;
+    height: 2000px;
+    background-color: #eee;
+}
+
+main {
+    #landing {
+        height: 100vh;
+        position: relative;
+        background-image: url('imgs/floriane-vita-FyD3OWBuXnY-unsplash.jpg');
+        object-fit: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &::after {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-color: #2222227e;
+        }
+    }
+}
+
+.social-item,
+.social-item li {
+    transition: all ease-in-out 300ms;
+}
+
+.social-item {
+    margin-bottom: 5px;
+    left: 10px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    color: #999 !important;
+    font-size: 25px;
+}
+
+.social-item li {
+    padding: 6px;
+    color: white;
+    visibility: hidden;
+    background-color: #00263A;
+    opacity: 0;
+}
+
+.social-item li::after {
+    content: '';
+    border-width: 7px;
+    position: absolute;
+    left: -12px;
+    border-style: solid;
+    top: 50%;
+    translate: 0 -50%;
+    border-color: transparent var(--main-color) transparent transparent;
+}
+
+.social-item span {
+    transition: all 0.3s ease;
+}
+
+.social-item:hover span {
+    color: var(--main-color);
+}
+
+.social-item:hover li {
+    left: calc(100% + 16px);
+    visibility: visible;
+    opacity: 1;
+}
+
+.layer-shape,
+.right-side {
+    transition: 0.5s all ease-in-out;
+}
+
+.right-side {
+    transition-delay: 0.1s;
+}
+
+.right-side.hide {
+    width: 0;
+}
+
+.right-side.hide+section {
+    width: 100%;
+    right: 0;
+}
+
+.layer-shape.hide {
+    left: 100%;
+}
+
+.right-side.hide {
+    right: -100%;
+}
+
+.values-rules {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding-bottom: 15px;
+
+    & div {
+        box-shadow: 10px 10px 15px #ddd;
+        border-radius: 4px;
+        padding: 15px;
+    }
+}
+
+
+.values-rules p {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+@media (width<500px) {
+    .right-side {
+        width: 0 !important;
+    }
+
+    .open-nav {
+        display: none;
+    }
+
+    .right-side+section {
+        width: 100% !important;
+        right: 0 !important;
+    }
+}
